@@ -29,6 +29,33 @@ fig = px.pie(df1, values=ctd, names=asistencia, title='Porcentaje de asistencia 
 st.plotly_chart(fig)
 # fig = px.pie(df, values='pop', names='country', title='Population of European continent')
 
+df2= df[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
+motivacion = df2["ETIQUETA_MOTIVACION"]
+ctd = df2["ID"]
+
+# x_options = [
+#     'calories', 'protein', 'fat', 'sodium', 'fiber', 'carbo', 'sugars',
+#     'potass'
+# ]
+
+# Allow use to choose
+x_axis = st.sidebar.selectbox('Which value do you want to explore?', motivacion)
+
+# plot the value
+fig = px.scatter(df2,
+                x=x_axis,
+                y='ctd',
+                hover_name='name',
+                title=f'Cereal ratings vs. {x_axis}')
+
+st.plotly_chart(fig)
+
+
+
+
+
+
+
 st.write("""### 1. Data overview""",df.head())
 st.write("""### 2. Aplicación de filtros""")
 
