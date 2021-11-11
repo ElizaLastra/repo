@@ -13,42 +13,21 @@ def load_data():
 	return data
 
 df = load_data() 
-df['Participante'] = 1
+# df['Participante'] = 1
 
 st.title('W1 Bootcamp DS')
 st.header('Inscripción en el evento de AGROS')
 st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
 
-# def pieChart():
-#    df1= df.groupby(['ASISTENCIA'])['ID'].count()
-#    asistencia = df1['ASISTENCIA']
-#    ctd = df1['ID']
-#    fig = plt.figure()
-#    plt.pie(ctd, labels = asistencia)
-#    st.balloons()	
-#    st.pyplot(fig)
+st.write("""### Participación en el evento"""")
 
-# @st.cache
-# def get_data():
-#     return pd.read_csv('https://github.com/ElizaLastra/repo/blob/master/base.csv', encoding = 'latin1', error_bad_lines=False)
-
-# df = get_data()  
-
-
-# cond_asistencia = st.selectbox('Asistencia', asistencia)
-# df[df['ASISTENCIA'] == cond_asistencia]
-
-#df.groupby(['ASISTENCIA']).value_counts().plot(kind='pie', y='ID')
-#df= pd.read_csv('https://github.com/ElizaLastra/repo/blob/master/base.csv', encoding = 'utf8')
-#df.groupby(['ASISTENCIA']).count().plot(kind='pie', y='ID')
-
-# df.groupby(['ASISTENCIA']).sum().plot(kind='pie', y='Participante')
-
-# asistencia = df['ASISTENCIA']
-# participantes = df['Participante']
-# plt.pie(participantes, labels=asistencia)
-# plt.title("Gold medal achievements of five most successful\n"+"countries in 2016 Summer Olympics")
-# plt.show()
+df1= df[['ID','ASISTENCIA']].groupby(['ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
+asistencia = df1["ASISTENCIA"]
+ctd = df1["ID"]
+# plot the value
+fig = px.pie(df1, values=ctd, names=asistencia, title='Porcentaje de participación')    
+st.plotly_chart(fig)
+# fig = px.pie(df, values='pop', names='country', title='Population of European continent')
 
 st.write("""### 1. Data overview""",df.head())
 st.write("""### 2. Aplicación de filtros""")
@@ -70,16 +49,4 @@ plt.xticks(size=20)
 plt.yticks(size=20)
 st.pyplot(fig3)
    
-df1= df[['ID','ASISTENCIA']].groupby(['ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
-asistencia = df1["ASISTENCIA"]
-ctd = df1["ID"]
-# fig = plt.figure()
-# plt.pie(ctd, labels= asistencia, autopct='%1.1f%%')
-# plt.title("Porcentaje de participación en el evento")
-# # plt.show()
-# st.plotly_chart(fig)
 
-# plot the value
-fig = px.pie(df1, values=ctd, names=asistencia)    
-st.plotly_chart(fig)
-# fig = px.pie(df, values='pop', names='country', title='Population of European continent')
