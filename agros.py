@@ -24,7 +24,7 @@ def load_data():
 # 	label = LabelEncoder()
 # 	for col in data.columns:
 # 		data[col] = label.fit_transform(data[col])
-return data
+	return data
 
 df = load_data() 
 df['Participante'] = 1
