@@ -19,11 +19,11 @@ st.header('Inscripción en el evento de AGROS')
 #df.groupby(['ASISTENCIA']).count().plot(kind='pie', y='ID')
 
 @st.cache(persist=True)
-	def load_data():
-		data = pd.read_csv('mushrooms.csv')
-		label = LabelEncoder()
-		for col in data.columns:
-			data[col] = label.fit_transform(data[col])
+def load_data():
+	data = pd.read_csv('mushrooms.csv')
+	label = LabelEncoder()
+	for col in data.columns:
+		data[col] = label.fit_transform(data[col])
 	return data
    
 asistencia = data['ASISTENCIA'].unique()
