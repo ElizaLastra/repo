@@ -73,8 +73,8 @@ def pieChart():
 	df1= df.groupby(['ASISTENCIA'])['ID'].count()
 	asistencia = df1['ASISTENCIA']
 	ctd = df1['ID']
-    	x = np.array([35, 25, 25, 15])
-    	mylabels = ["Python", "JavaScript", "C++", "C"]
+#     	x = np.array([35, 25, 25, 15])
+#     	mylabels = ["Python", "JavaScript", "C++", "C"]
 
    	fig = plt.figure(figsize=(10, 4))
    	plt.pie(ctd, labels = asistencia)
