@@ -56,8 +56,8 @@ st.plotly_chart(fig1)
 
 st.header('Canal de inscripción al evento')
 
-cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df1["ASISTENCIA"])
-df3 = df[(df['ASISTENCIA'].isin(cond_asistencia))]
+cond_asistencia1= st.multiselect('Seleccione de acuerdo a asistencia', df1["ASISTENCIA"])
+df3 = df[(df['ASISTENCIA'].isin(cond_asistencia1))]
 df3= df3[['ID','ETIQUETA_CANAL']].groupby(['ETIQUETA_CANAL'], as_index=False).aggregate({'ID':'count'})
 fig1 = px.bar(df3, x='ETIQUETA_CANAL', y='ID',labels={'ETIQUETA_CANAL':'Motivación','ID':'Número de personas'})
 fig1.update_layout(title_text='Número de personas inscritas por canal')
