@@ -40,6 +40,7 @@ df['Participante'] = 1
 # plt.show()
 
 st.write("""### 1. Data overview""",df.head())
+st.write("""### 2. Aplicación de filtros""")
 
 asistencia = df['ASISTENCIA'].unique()
 cond_asistencia = st.selectbox('Asistencia', asistencia)
