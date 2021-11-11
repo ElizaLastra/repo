@@ -12,10 +12,9 @@ df = get_data()
 
 asistencia = df['ASISTENCIA'].unique()
 
-cond_asistencia = st.selectbox('Asistencia', asistencia)
-df[df['ASISTENCIA'] == cond_asistencia]
+# cond_asistencia = st.selectbox('Asistencia', asistencia)
+# df[df['ASISTENCIA'] == cond_asistencia]
 
 #df.groupby(['ASISTENCIA']).value_counts().plot(kind='pie', y='ID')
-
 #df= pd.read_csv('https://github.com/ElizaLastra/repo/blob/master/base.csv', encoding = 'utf8')
 #df.groupby(['ASISTENCIA']).count().plot(kind='pie', y='ID')
