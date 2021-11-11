@@ -25,6 +25,7 @@ def load_data():
 	for col in data.columns:
 		data[col] = label.fit_transform(data[col])
 	return data
-   
-asistencia = data['ASISTENCIA'].unique()
+
+df = load_data()   
+asistencia = df['ASISTENCIA'].unique()
    
