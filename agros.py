@@ -56,12 +56,12 @@ st.plotly_chart(fig1)
 
 st.header('Canal de inscripción al evento')
 
-cond_asistencia1= st.multiselect('Seleccione de acuerdo a asistencia', df1["ASISTENCIA"])
-df4 = df[(df['ASISTENCIA'].isin(cond_asistencia1))]
-df4= df4[['ID','ETIQUETA_CANAL']].groupby(['ETIQUETA_CANAL'], as_index=False).aggregate({'ID':'count'})
-fig3 = px.bar(df4, x='ETIQUETA_CANAL', y='ID',labels={'ETIQUETA_CANAL':'Canal','ID':'Número de personas'})
-fig3.update_layout(title_text='Número de personas inscritas por canal')
-st.plotly_chart(fig3)
+
+df4= df[['ID','ETIQUETA_CANAL','ASISTENCIA']].groupby(['ETIQUETA_MOTIVACION','ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
+fig2 = px.bar(df4, x="ETIQUETA_CANAL", y="ID",
+             color='ASISTENCIA', barmode='group',
+             height=400)
+st.plotly_chart(fig2)
 
 # st.write("""### 1. Data overview""",df.head())
 # st.write("""### 2. Aplicación de filtros""")
