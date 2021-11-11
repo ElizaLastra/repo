@@ -72,5 +72,4 @@ st.pyplot(fig3)
 # plt.title("Porcentaje de participación en el evento")
 # plt.show()
 
-df0=df['ID'].count()
-st.metric(label="Temperature", value=df0, delta="1.2 °F")
+st.metric(label="Temperature", value=df['ID'].count(), delta="1.2 °F")
