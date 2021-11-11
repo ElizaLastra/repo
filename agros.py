@@ -18,6 +18,15 @@ st.title('W1 Bootcamp DS')
 st.header('Inscripción en el evento de AGROS')
 st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
 
+def pieChart():
+    df1= df.groupby(['ASISTENCIA'])['ID'].count()
+    asistencia = df1['ASISTENCIA']
+    ctd = df1['ID']
+    fig = plt.figure()
+    plt.pie(ctd, labels = asistencia)
+    st.balloons()	
+    st.pyplot(fig)
+
 # @st.cache
 # def get_data():
 #     return pd.read_csv('https://github.com/ElizaLastra/repo/blob/master/base.csv', encoding = 'latin1', error_bad_lines=False)
@@ -69,11 +78,4 @@ st.pyplot(fig3)
 # # plt.show()
 # st.plotly_chart(fig)
 
-def pieChart():
-	df1= df.groupby(['ASISTENCIA'])['ID'].count()
-	asistencia = df1['ASISTENCIA']
-	ctd = df1['ID']
-	fig = plt.figure()
-	plt.pie(ctd, labels = asistencia)
-	st.balloons()	
-	st.pyplot(fig)
+
