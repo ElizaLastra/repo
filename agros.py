@@ -28,4 +28,6 @@ def load_data():
 
 df = load_data()   
 asistencia = df['ASISTENCIA'].unique()
+cond_asistencia = st.selectbox('Asistencia', asistencia)
+df[df['ASISTENCIA'] == cond_asistencia]
    
