@@ -18,7 +18,8 @@ st.header('Inscripción en el evento de AGROS')
 #df= pd.read_csv('https://github.com/ElizaLastra/repo/blob/master/base.csv', encoding = 'utf8')
 #df.groupby(['ASISTENCIA']).count().plot(kind='pie', y='ID')
 
-@st.cache(persist=True)
+# @st.cache(persist=True)
+@st.cache()
 def load_data():
 	data = pd.read_csv('base.csv', encoding = 'latin1')
 # 	label = LabelEncoder()
