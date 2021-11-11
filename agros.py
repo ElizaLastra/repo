@@ -25,7 +25,7 @@ def pieChart():
     fig = plt.figure()
     plt.pie(ctd, labels = asistencia)
     st.balloons()	
-    st.pyplot(fig)
+#     st.pyplot(fig)
 
 # @st.cache
 # def get_data():
