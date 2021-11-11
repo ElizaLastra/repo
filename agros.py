@@ -33,14 +33,18 @@ st.header('Motivación de los inscritos en el evento')
 
 df2= df[['ID','ETIQUETA_MOTIVACION','ASISTENCIA']].groupby(['ETIQUETA_MOTIVACION','ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
 
-st.multiselect('Seleccione de acuerdo a asistencia', df2["ASISTENCIA"])
-st.write()
 
-# data_canada = px.data.gapminder().query("country == 'Canada'")
-fig1 = px.bar(df2, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
-fig1.update_layout(title_text='Número de personas por motivación de inscripción')
+cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df2["ASISTENCIA"])
+if cond_asistencia == "SI":
+	df3= df2[df2.ASISTENCIA != 'NO']
+	fig1 = px.bar(df3, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
+	fig1.update_layout(title_text='Número de personas por motivación de inscripción')
+else:
+	df3= df2
+	fig1 = px.bar(df3, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
+	fig1.update_layout(title_text='Número de personas por motivación de inscripción')
+
 st.plotly_chart(fig1)
-
 
 st.write("""### 1. Data overview""",df.head())
 st.write("""### 2. Aplicación de filtros""")
