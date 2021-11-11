@@ -26,5 +26,5 @@ st.header('Inscripción en el evento de AGROS')
 			data[col] = label.fit_transform(data[col])
 	return data
    
- asistencia = data['ASISTENCIA'].unique()
+asistencia = data['ASISTENCIA'].unique()
    
