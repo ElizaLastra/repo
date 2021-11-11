@@ -33,7 +33,8 @@ st.header('Motivación de los inscritos en el evento')
 
 df2= df[['ID','ETIQUETA_MOTIVACION','ASISTENCIA']].groupby(['ETIQUETA_MOTIVACION','ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
 
-# st.multiselect('Seleccione de acuerdo a asistencia', x_options)
+st.multiselect('Seleccione de acuerdo a asistencia', df2["ASISTENCIA"])
+st.write()
 
 # data_canada = px.data.gapminder().query("country == 'Canada'")
 fig1 = px.bar(df2, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
