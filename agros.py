@@ -70,9 +70,9 @@ plt.xticks(size=20)
 plt.yticks(size=20)
 st.pyplot(fig3)
    
-df1= df.groupby(['ASISTENCIA'])['ID'].count()
-asistencia = df1['ASISTENCIA']
-ctd = df1['ID']
+df1= df[['ID','ASISTENCIA']].groupby(['ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
+asistencia = df1["ASISTENCIA"]
+ctd = df1["ID"]
 # fig = plt.figure()
 # plt.pie(ctd, labels= asistencia, autopct='%1.1f%%')
 # plt.title("Porcentaje de participación en el evento")
