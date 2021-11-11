@@ -59,9 +59,9 @@ plt.xticks(size=20)
 plt.yticks(size=20)
 st.pyplot(fig3)
    
-df1=df.groupby(['ASISTENCIA'])['ID'].count()
-fig4 = df1.plot(kind='pie',title='Asitencia al evento')
-st.pyplot(fig4)
+# df1=df.groupby(['ASISTENCIA'])['ID'].count()
+# fig4 = df1.plot(kind='pie',title='Asitencia al evento')
+# st.pyplot(fig4)
 
 # asistencia = df1["ASISTENCIA"]
 # ctd = df1["ID"]
