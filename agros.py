@@ -57,7 +57,7 @@ st.plotly_chart(fig1)
 st.header('Canal de inscripción al evento')
 
 
-df4= df[['ID','ETIQUETA_CANAL','ASISTENCIA']].groupby(['ETIQUETA_MOTIVACION','ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
+df4= df[['ID','ETIQUETA_CANAL','ASISTENCIA']].groupby(['ETIQUETA_CANAL','ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
 fig2 = px.bar(df4, x="ETIQUETA_CANAL", y="ID",
              color='ASISTENCIA', barmode='group',
              height=400)
