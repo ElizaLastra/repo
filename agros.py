@@ -72,4 +72,4 @@ st.pyplot(fig3)
 # plt.title("Porcentaje de participación en el evento")
 # plt.show()
 
-st.metric(label=st.header('Inscripción en el evento de AGROS'), value=int(df['ID'].count()))
+st.metric(label="st.header(Inscripción en el evento de AGROS')", value=int(df['ID'].count()))
