@@ -19,7 +19,7 @@ st.title('W1 Bootcamp DS')
 st.header('Inscripción en el evento de AGROS')
 st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
 
-st.write("""### Participación en el evento""")
+st.header('Participación en el evento')
 
 df1= df[['ID','ASISTENCIA']].groupby(['ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
 asistencia = df1["ASISTENCIA"]
