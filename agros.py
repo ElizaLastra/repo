@@ -31,7 +31,7 @@ st.plotly_chart(fig)
 
 st.header('Organización a la que pertenecen los inscritos en el evento')
 
-df3= df3[['ID','ETIQUETA_ORGANIZACION']].groupby(['ETIQUETA_ORGANIZACION'], as_index=False).aggregate({'ID':'count'})
+df3= df[['ID','ETIQUETA_ORGANIZACION']].groupby(['ETIQUETA_ORGANIZACION'], as_index=False).aggregate({'ID':'count'})
 fig1 = px.bar(df3, x='ETIQUETA_ORGANIZACION', y='ID', orientation='h', labels={'ETIQUETA_ORGANIZACION':'Organización','ID':'Número de personas'})
 fig1.update_layout(title_text='Número de personas inscritas de acuerdo a su organización')
 st.plotly_chart(fig1)
