@@ -52,7 +52,7 @@ fig3 = plt.figure(constrained_layout=True,figsize=(21,11))
 gs = fig3.add_gridspec(40,40)
 
 fig3.add_subplot(gs[0:19,0:20])
-plt.hist(df['Participantes'],range=(0,160),bins=16,alpha=0.8)
+plt.hist(df['Participante'],range=(0,160),bins=16,alpha=0.8)
 plt.ylabel('Frequency',fontsize=25)
 plt.xlabel('Caps',fontsize=25)
 plt.xticks(size=20)
