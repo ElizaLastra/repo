@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from matplotlib import pyplot as plt
+import plotly.express as px
 
 # @st.cache(allow_output_mutation=True)
 @st.cache(allow_output_mutation=True)
@@ -18,14 +19,14 @@ st.title('W1 Bootcamp DS')
 st.header('Inscripción en el evento de AGROS')
 st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
 
-def pieChart():
-   df1= df.groupby(['ASISTENCIA'])['ID'].count()
-   asistencia = df1['ASISTENCIA']
-   ctd = df1['ID']
-   fig = plt.figure()
-   plt.pie(ctd, labels = asistencia)
-   st.balloons()	
-   st.pyplot(fig)
+# def pieChart():
+#    df1= df.groupby(['ASISTENCIA'])['ID'].count()
+#    asistencia = df1['ASISTENCIA']
+#    ctd = df1['ID']
+#    fig = plt.figure()
+#    plt.pie(ctd, labels = asistencia)
+#    st.balloons()	
+#    st.pyplot(fig)
 
 # @st.cache
 # def get_data():
@@ -69,13 +70,19 @@ plt.xticks(size=20)
 plt.yticks(size=20)
 st.pyplot(fig3)
    
-# df1= df.groupby(['ASISTENCIA'])['ID'].count()
-# asistencia = df1['ASISTENCIA']
-# ctd = df1['ID']
+df1= df.groupby(['ASISTENCIA'])['ID'].count()
+asistencia = df1['ASISTENCIA']
+ctd = df1['ID']
 # fig = plt.figure()
 # plt.pie(ctd, labels= asistencia, autopct='%1.1f%%')
 # plt.title("Porcentaje de participación en el evento")
 # # plt.show()
 # st.plotly_chart(fig)
 
+# plot the value
+fig = px.scatter(df1,
+                x=asistencia,
+                y=ctd
+                )
 
+st.plotly_chart(fig)
