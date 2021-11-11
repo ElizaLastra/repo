@@ -29,17 +29,20 @@ fig = px.pie(df1, values=ctd, names=asistencia, title='Porcentaje de asistencia 
 st.plotly_chart(fig)
 # fig = px.pie(df, values='pop', names='country', title='Population of European continent')
 
+st.header('Organización a la que pertenecen los inscritos en el evento').
+
+df3= df3[['ID','ETIQUETA_ORGANIZACION']].groupby(['ETIQUETA_ORGANIZACION'], as_index=False).aggregate({'ID':'count'})
+fig1 = px.bar(df3, x='ETIQUETA_ORGANIZACION', y='ID',labels={'ETIQUETA_ORGANIZACION':'Organización','ID':'Número de personas'})
+fig1.update_layout(title_text='Número de personas inscritas de acuerdo a su organización', orientation='h')
+st.plotly_chart(fig1)
+
 st.header('Motivación de los inscritos en el evento')
 
 cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df1["ASISTENCIA"])
-# cond_asistencia = str(cond_asistencia)
-# st.write(cond_asistencia)
-
 df3 = df[(df['ASISTENCIA'].isin(cond_asistencia))]
 df3= df3[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
 fig1 = px.bar(df3, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
 fig1.update_layout(title_text='Número de personas por motivación de inscripción')
-
 st.plotly_chart(fig1)
 
 st.write("""### 1. Data overview""",df.head())
