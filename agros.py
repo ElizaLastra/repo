@@ -59,3 +59,4 @@ plt.xticks(size=20)
 plt.yticks(size=20)
 st.pyplot(fig3)
    
+st.line_chart(df['Participant'])
