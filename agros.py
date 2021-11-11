@@ -16,7 +16,7 @@ df['Participante'] = 1
 
 st.title('W1 Bootcamp DS')
 st.header('Inscripción en el evento de AGROS')
-st.metric(label="Número de inscritos e incremento respecto al evento anterior", value=int(df['ID'].count()), delta="10%")
+st.metric(label="Número de inscritos y variación respecto al evento anterior", value=int(df['ID'].count()), delta="10%")
 
 # @st.cache
 # def get_data():
