@@ -31,13 +31,13 @@ def load_data():
 df = load_data() 
 df['Participante'] = 1
 
-df.groupby(['ASISTENCIA']).sum().plot(kind='pie', y='Participante')
+# df.groupby(['ASISTENCIA']).sum().plot(kind='pie', y='Participante')
 
-# asistencia = df['ASISTENCIA']
-# participantes = df['Participante']
-# plt.pie(participantes, labels=asistencia)
-# plt.title("Gold medal achievements of five most successful\n"+"countries in 2016 Summer Olympics")
-# plt.show()
+asistencia = df['ASISTENCIA']
+participantes = df['Participante']
+plt.pie(participantes, labels=asistencia)
+plt.title("Gold medal achievements of five most successful\n"+"countries in 2016 Summer Olympics")
+plt.show()
 
 asistencia = df['ASISTENCIA'].unique()
 cond_asistencia = st.selectbox('Asistencia', asistencia)
