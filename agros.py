@@ -7,6 +7,7 @@ st.header('Inscripción en el evento de AGROS')
 @st.cache
 def get_data():
     return pd.read_csv('https://github.com/ElizaLastra/repo/blob/master/base.csv')
+
 df = get_data()  
 
 #df.groupby(['ASISTENCIA']).value_counts().plot(kind='pie', y='ID')
