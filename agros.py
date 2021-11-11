@@ -2,8 +2,21 @@ import streamlit as st
 import pandas as pd
 from matplotlib import pyplot as plt
 
+# @st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)
+def load_data():
+	data = pd.read_csv('base.csv', encoding = 'latin1')
+# 	label = LabelEncoder()
+# 	for col in data.columns:
+# 		data[col] = label.fit_transform(data[col])
+	return data
+
+df = load_data() 
+df['Participante'] = 1
+
 st.title('W1 Bootcamp DS')
 st.header('Inscripción en el evento de AGROS')
+st.metric(label="Número de inscritos e incremento respecto al evento anterior", value=int(df['ID'].count()), delta="10%")
 
 # @st.cache
 # def get_data():
@@ -18,18 +31,6 @@ st.header('Inscripción en el evento de AGROS')
 #df.groupby(['ASISTENCIA']).value_counts().plot(kind='pie', y='ID')
 #df= pd.read_csv('https://github.com/ElizaLastra/repo/blob/master/base.csv', encoding = 'utf8')
 #df.groupby(['ASISTENCIA']).count().plot(kind='pie', y='ID')
-
-# @st.cache(allow_output_mutation=True)
-@st.cache(allow_output_mutation=True)
-def load_data():
-	data = pd.read_csv('base.csv', encoding = 'latin1')
-# 	label = LabelEncoder()
-# 	for col in data.columns:
-# 		data[col] = label.fit_transform(data[col])
-	return data
-
-df = load_data() 
-df['Participante'] = 1
 
 # df.groupby(['ASISTENCIA']).sum().plot(kind='pie', y='Participante')
 
@@ -72,4 +73,5 @@ st.pyplot(fig3)
 # plt.title("Porcentaje de participación en el evento")
 # plt.show()
 
-st.metric(label="st.header(Inscripción en el evento de AGROS')", value=int(df['ID'].count()))
+
+
