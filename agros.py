@@ -59,4 +59,5 @@ plt.xticks(size=20)
 plt.yticks(size=20)
 st.pyplot(fig3)
    
-st.line_chart(df['Participante'])
+df1=df.groupby(['ASISTENCIA'])['ID'].count()
+df1.plot(kind='pie',title='Asitencia al evento')
