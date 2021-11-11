@@ -26,5 +26,5 @@ def load_data():
 # 		data[col] = label.fit_transform(data[col])
 	return data
    
-# asistencia = data['ASISTENCIA'].unique()
+asistencia = data['ASISTENCIA'].unique()
    
