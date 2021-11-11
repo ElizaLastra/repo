@@ -38,7 +38,7 @@ if cond_asistencia == "SI":
 	fig1 = px.bar(df2, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
 	fig1.update_layout(title_text='Número de personas por motivación de inscripción')
 else:
-	df2= d2[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
+	df2= df[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
 	fig1 = px.bar(df2, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
 	fig1.update_layout(title_text='Número de personas por motivación de inscripción')
 
