@@ -33,26 +33,10 @@ df2= df[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=
 motivacion = df2["ETIQUETA_MOTIVACION"]
 ctd = df2["ID"]
 
-# x_options = [
-#     'calories', 'protein', 'fat', 'sodium', 'fiber', 'carbo', 'sugars',
-#     'potass'
-# ]
-
-# Allow use to choose
-x_axis = st.sidebar.selectbox('Which value do you want to explore?', motivacion)
-
-# plot the value
-fig = px.scatter(df2,
-                x=x_axis,
-                y='ctd',
-                title=f'Cereal ratings vs. {x_axis}')
-
-st.plotly_chart(fig)
-
-
-
-
-
+import plotly.express as px
+# data_canada = px.data.gapminder().query("country == 'Canada'")
+fig1 = px.bar(df2, x='ETIQUETA_MOTIVACION', y='ID')
+st.plotly_chart(fig1)
 
 
 st.write("""### 1. Data overview""",df.head())
