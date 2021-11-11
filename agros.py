@@ -31,7 +31,7 @@ st.plotly_chart(fig)
 
 st.header('Motivación de los inscritos en el evento')
 
-cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df2["ASISTENCIA"])
+cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df1["ASISTENCIA"])
 if cond_asistencia == "SI":
 	df2= df[df.ASISTENCIA != 'NO']
 	df2= d2[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
