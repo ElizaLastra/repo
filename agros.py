@@ -32,7 +32,7 @@ df['Participante'] = 1
 
 df.groupby(['ASISTENCIA']).sum().plot(kind='pie', y='Participante')
 
-asistencia = df['ASISTENCIA'].unique()
-cond_asistencia = st.selectbox('Asistencia', asistencia)
-df[df['ASISTENCIA'] == cond_asistencia]
+# asistencia = df['ASISTENCIA'].unique()
+# cond_asistencia = st.selectbox('Asistencia', asistencia)
+# df[df['ASISTENCIA'] == cond_asistencia]
    
