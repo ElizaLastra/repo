@@ -34,7 +34,8 @@ st.header('Motivación de los inscritos en el evento')
 df2= df[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
 
 # data_canada = px.data.gapminder().query("country == 'Canada'")
-fig1 = px.bar(df2, x='Motivación', y='Número de personas inscritas')
+fig1 = px.bar(df2, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
+fig1.update_layout(title_text='Número de personas por motivación de inscripción')
 st.plotly_chart(fig1)
 
 
