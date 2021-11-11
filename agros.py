@@ -76,7 +76,7 @@ def pieChart():
 #     	x = np.array([35, 25, 25, 15])
 #     	mylabels = ["Python", "JavaScript", "C++", "C"]
 
-   	fig = plt.figure(figsize=(10, 4))
+   	fig = plt.figure()
    	plt.pie(ctd, labels = asistencia)
 
     	st.balloons()
