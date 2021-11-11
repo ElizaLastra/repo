@@ -77,5 +77,3 @@ def pieChart():
 	plt.pie(ctd, labels = asistencia)
 	st.balloons()	
 	st.pyplot(fig)
-	
-st.pyplot(fig)
