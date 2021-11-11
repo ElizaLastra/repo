@@ -33,7 +33,7 @@ st.header('Motivación de los inscritos en el evento')
 
 cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df1["ASISTENCIA"])
 cond_asistencia = str(cond_asistencia)
-# st.write(cond_asistencia)
+st.write(cond_asistencia)
 
 if cond_asistencia == "SI":
 	df2= df[df.ASISTENCIA!='NO']
