@@ -35,7 +35,7 @@ df['Participante'] = 1
 
 asistencia = df['ASISTENCIA']
 participantes = df['Participante']
-plt.pie(participantes, labels=asistencia, autopct='%1.1f%%')
+plt.pie(participantes, labels=asistencia)
 plt.title("Gold medal achievements of five most successful\n"+"countries in 2016 Summer Olympics")
 plt.show()
 
