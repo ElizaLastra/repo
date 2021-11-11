@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt 
 
 st.title('W1 Bootcamp DS')
 st.header('Inscripción en el evento de AGROS')
@@ -30,7 +31,7 @@ def load_data():
 df = load_data() 
 df['Participante'] = 1
 
-df.groupby(['ASISTENCIA']).sum().plot(kind='pie', y='Participante')
+# df.groupby(['ASISTENCIA']).sum().plot(kind='pie', y='Participante')
 
 # asistencia = df['ASISTENCIA'].unique()
 # cond_asistencia = st.selectbox('Asistencia', asistencia)
