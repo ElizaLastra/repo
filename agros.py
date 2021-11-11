@@ -60,18 +60,12 @@ plt.xticks(size=20)
 plt.yticks(size=20)
 st.pyplot(fig3)
    
-# df1=df.groupby(['ASISTENCIA'])['ID'].count()
-# fig4 = df1.plot(kind='pie',title='Asitencia al evento')
-# st.pyplot(fig4)
-
-# asistencia = df1["ASISTENCIA"]
-# ctd = df1["ID"]
-# # colors = ["#1f77b4", "#ff7f0e"]
-# # explode = (0.1, 0, 0, 0, 0)  
-# plt.pie(ctd, labels=asistencia,
-# autopct='%1.1f%%')
-# plt.title("Porcentaje de participación en el evento")
+df1=df.groupby(['ASISTENCIA'])['ID'].count()
+asistencia = df1["ASISTENCIA"]
+ctd = df1["ID"]
+fig = plt.figure()
+plt.pie(ctd, labels=asistencia,
+autopct='%1.1f%%')
+plt.title("Porcentaje de participación en el evento")
 # plt.show()
-
-
-
+st.plotly_chart(fig)
