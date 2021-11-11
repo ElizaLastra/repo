@@ -31,17 +31,15 @@ st.plotly_chart(fig)
 
 st.header('Motivación de los inscritos en el evento')
 
-df2= df[['ID','ETIQUETA_MOTIVACION','ASISTENCIA']].groupby(['ETIQUETA_MOTIVACION','ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
-
-
 cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df2["ASISTENCIA"])
 if cond_asistencia == "SI":
-	df3= df2[df2.ASISTENCIA != 'NO']
-	fig1 = px.bar(df3, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
+	df2= df[df.ASISTENCIA != 'NO']
+	df2= d2[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
+	fig1 = px.bar(df2, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
 	fig1.update_layout(title_text='Número de personas por motivación de inscripción')
 else:
-	df3= df2
-	fig1 = px.bar(df3, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
+	df2= d2[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
+	fig1 = px.bar(df2, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
 	fig1.update_layout(title_text='Número de personas por motivación de inscripción')
 
 st.plotly_chart(fig1)
