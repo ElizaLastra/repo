@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-matplotlib.use('Agg')
 from matplotlib import pyplot as plt
 
 st.title('W1 Bootcamp DS')
