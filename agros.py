@@ -45,6 +45,8 @@ fig1 = px.bar(df3, x='ID', y='ETIQUETA_CARGO', orientation='h', labels={'ETIQUET
 fig1.update_layout(title_text='Número de personas inscritas de acuerdo a su cargo')
 st.plotly_chart(fig1)
 
+st.header('Motivación que ocupan los inscritos en el evento')
+
 cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df1["ASISTENCIA"])
 df3 = df[(df['ASISTENCIA'].isin(cond_asistencia))]
 df3= df3[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
