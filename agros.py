@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-from matplotlib.pyplot import pie, axis, show
-%matplotlib inline
+import matplotlib
+matplotlib.use('TkAgg')
 
 st.title('W1 Bootcamp DS')
 st.header('Inscripción en el evento de AGROS')
