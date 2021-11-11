@@ -30,7 +30,7 @@ def load_data():
 df = load_data() 
 df['Participante'] = 1
 
-# df.groupby(['ASISTENCIA']).sum().plot(kind='pie', y='Participante')
+df.groupby(['ASISTENCIA']).sum().plot(kind='pie', y='Participante')
 
 asistencia = df['ASISTENCIA'].unique()
 cond_asistencia = st.selectbox('Asistencia', asistencia)
