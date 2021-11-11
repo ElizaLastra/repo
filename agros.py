@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-import matplotlib
-matplotlib.use('TkAgg')
+matplotlib.use('Agg')
+from matplotlib import pyplot as plt
 
 st.title('W1 Bootcamp DS')
 st.header('Inscripción en el evento de AGROS')
