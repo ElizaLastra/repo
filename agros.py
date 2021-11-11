@@ -72,7 +72,4 @@ st.pyplot(fig3)
 # plt.title("Porcentaje de participación en el evento")
 # plt.show()
 
-col1, col2, col3 = st.columns(3)
-col1.metric("Temperature", "70 °F", "1.2 °F")
-col2.metric("Wind", "9 mph", "-8%")
-col3.metric("Humidity", "86%", "4%")
+st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
