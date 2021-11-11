@@ -29,7 +29,7 @@ fig = px.pie(df1, values=ctd, names=asistencia, title='Porcentaje de asistencia 
 st.plotly_chart(fig)
 # fig = px.pie(df, values='pop', names='country', title='Population of European continent')
 
-st.header('Organización a la que pertenecen los inscritos en el evento').
+st.header('Organización a la que pertenecen los inscritos en el evento')
 
 df3= df3[['ID','ETIQUETA_ORGANIZACION']].groupby(['ETIQUETA_ORGANIZACION'], as_index=False).aggregate({'ID':'count'})
 fig1 = px.bar(df3, x='ETIQUETA_ORGANIZACION', y='ID', orientation='h', labels={'ETIQUETA_ORGANIZACION':'Organización','ID':'Número de personas'})
