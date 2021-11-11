@@ -20,7 +20,7 @@ st.header('Inscripción en el evento de AGROS')
 #df.groupby(['ASISTENCIA']).count().plot(kind='pie', y='ID')
 
 # @st.cache(allow_output_mutation=True)
-@st.cache(persist=True)
+@st.cache(allow_output_mutation=True)
 def load_data():
 	data = pd.read_csv('base.csv', encoding = 'latin1')
 # 	label = LabelEncoder()
