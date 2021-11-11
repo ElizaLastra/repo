@@ -80,9 +80,6 @@ ctd = df1["ID"]
 # st.plotly_chart(fig)
 
 # plot the value
-fig = px.scatter(df1,
-                x=asistencia,
-                y=ctd
-                )
-
+fig = px.pie(df1, values=ctd, names=asistencia)    
 st.plotly_chart(fig)
+# fig = px.pie(df, values='pop', names='country', title='Population of European continent')
