@@ -39,7 +39,7 @@ df.groupby(['ASISTENCIA']).sum().plot(kind='pie', y='Participante')
 # plt.title("Gold medal achievements of five most successful\n"+"countries in 2016 Summer Olympics")
 # plt.show()
 
-# asistencia = df['ASISTENCIA'].unique()
-# cond_asistencia = st.selectbox('Asistencia', asistencia)
-# df[df['ASISTENCIA'] == cond_asistencia]
+asistencia = df['ASISTENCIA'].unique()
+cond_asistencia = st.selectbox('Asistencia', asistencia)
+df[df['ASISTENCIA'] == cond_asistencia]
    
