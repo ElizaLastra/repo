@@ -25,7 +25,7 @@ df1= df[['ID','ASISTENCIA']].groupby(['ASISTENCIA'], as_index=False).aggregate({
 asistencia = df1["ASISTENCIA"]
 ctd = df1["ID"]
 # plot the value
-fig = px.pie(df1, values=ctd, names=asistencia, title='Porcentaje de asistencia')    
+fig = px.pie(df1, values=ctd, names=asistencia, title='Porcentaje de asistencia (%)')    
 st.plotly_chart(fig)
 # fig = px.pie(df, values='pop', names='country', title='Population of European continent')
 
