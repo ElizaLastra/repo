@@ -6,7 +6,7 @@ st.header('Inscripción en el evento de AGROS')
 
 @st.cache
 def get_data():
-    return pd.read_csv('https://github.com/ElizaLastra/repo/blob/master/base.csv', error_bad_lines=False)
+    return pd.read_csv('https://github.com/ElizaLastra/repo/blob/master/base.csv', encoding = 'latin1', error_bad_lines=False)
 
 df = get_data()  
 
