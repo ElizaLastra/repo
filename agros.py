@@ -45,7 +45,7 @@ fig1 = px.bar(df3, x='ID', y='ETIQUETA_CARGO', orientation='h', labels={'ETIQUET
 fig1.update_layout(title_text='Número de personas inscritas de acuerdo a su cargo')
 st.plotly_chart(fig1)
 
-st.header('Motivación que ocupan los inscritos en el evento')
+st.header('Motivación de los inscritos en el evento')
 
 cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df1["ASISTENCIA"])
 df3 = df[(df['ASISTENCIA'].isin(cond_asistencia))]
@@ -54,24 +54,24 @@ fig1 = px.bar(df3, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION'
 fig1.update_layout(title_text='Número de personas por motivación de inscripción')
 st.plotly_chart(fig1)
 
-st.write("""### 1. Data overview""",df.head())
-st.write("""### 2. Aplicación de filtros""")
+# st.write("""### 1. Data overview""",df.head())
+# st.write("""### 2. Aplicación de filtros""")
 
-asistencia = df['ASISTENCIA'].unique()
-cond_asistencia = st.selectbox('Asistencia', asistencia)
-df[df['ASISTENCIA'] == cond_asistencia]
+# asistencia = df['ASISTENCIA'].unique()
+# cond_asistencia = st.selectbox('Asistencia', asistencia)
+# df[df['ASISTENCIA'] == cond_asistencia]
 
-plt.rcParams.update(plt.rcParamsDefault)
-plt.style.use('bmh')
-fig3 = plt.figure(constrained_layout=True,figsize=(21,11))
-gs = fig3.add_gridspec(40,40)
+# plt.rcParams.update(plt.rcParamsDefault)
+# plt.style.use('bmh')
+# fig3 = plt.figure(constrained_layout=True,figsize=(21,11))
+# gs = fig3.add_gridspec(40,40)
 
-fig3.add_subplot(gs[0:19,0:20])
-plt.hist(df['Participante'],range=(0,160),bins=16,alpha=0.8)
-plt.ylabel('Frequency',fontsize=25)
-plt.xlabel('Caps',fontsize=25)
-plt.xticks(size=20)
-plt.yticks(size=20)
-st.pyplot(fig3)
+# fig3.add_subplot(gs[0:19,0:20])
+# plt.hist(df['Participante'],range=(0,160),bins=16,alpha=0.8)
+# plt.ylabel('Frequency',fontsize=25)
+# plt.xlabel('Caps',fontsize=25)
+# plt.xticks(size=20)
+# plt.yticks(size=20)
+# st.pyplot(fig3)
    
 
