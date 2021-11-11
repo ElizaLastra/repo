@@ -19,13 +19,13 @@ st.header('Inscripción en el evento de AGROS')
 st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
 
 def pieChart():
-    df1= df.groupby(['ASISTENCIA'])['ID'].count()
-    asistencia = df1['ASISTENCIA']
-    ctd = df1['ID']
-    fig = plt.figure()
-    plt.pie(ctd, labels = asistencia)
-    st.balloons()	
-#     st.pyplot(fig)
+   df1= df.groupby(['ASISTENCIA'])['ID'].count()
+   asistencia = df1['ASISTENCIA']
+   ctd = df1['ID']
+   fig = plt.figure()
+   plt.pie(ctd, labels = asistencia)
+   st.balloons()	
+   st.pyplot(fig)
 
 # @st.cache
 # def get_data():
