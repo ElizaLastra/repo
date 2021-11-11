@@ -75,5 +75,5 @@ def pieChart():
 	ctd = df1['ID']
 	fig = plt.figure()
 	plt.pie(ctd, labels = asistencia)
-	st.balloons()
-	st.pyplot(fig)
+st.balloons()
+st.pyplot(fig)
