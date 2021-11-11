@@ -45,4 +45,17 @@ st.write("""### 2. Aplicación de filtros""")
 asistencia = df['ASISTENCIA'].unique()
 cond_asistencia = st.selectbox('Asistencia', asistencia)
 df[df['ASISTENCIA'] == cond_asistencia]
+
+plt.rcParams.update(plt.rcParamsDefault)
+plt.style.use('bmh')
+fig3 = plt.figure(constrained_layout=True,figsize=(21,11))
+gs = fig3.add_gridspec(40,40)
+
+fig3.add_subplot(gs[0:19,0:20])
+plt.hist(df['Participantes'],range=(0,160),bins=16,alpha=0.8)
+plt.ylabel('Frequency',fontsize=25)
+plt.xlabel('Caps',fontsize=25)
+plt.xticks(size=20)
+plt.yticks(size=20)
+st.pyplot(fig3)
    
