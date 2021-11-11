@@ -60,4 +60,5 @@ plt.yticks(size=20)
 st.pyplot(fig3)
    
 df1=df.groupby(['ASISTENCIA'])['ID'].count()
-df1.plot(kind='pie',title='Asitencia al evento')
+fig4 = df1.plot(kind='pie',title='Asitencia al evento')
+st.pyplot(fig4)
