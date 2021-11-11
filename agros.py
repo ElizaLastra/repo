@@ -45,7 +45,6 @@ x_axis = st.sidebar.selectbox('Which value do you want to explore?', motivacion)
 fig = px.scatter(df2,
                 x=x_axis,
                 y='ctd',
-                hover_name='name',
                 title=f'Cereal ratings vs. {x_axis}')
 
 st.plotly_chart(fig)
