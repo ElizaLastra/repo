@@ -72,4 +72,4 @@ st.pyplot(fig4)
 # plt.title("Porcentaje de participación en el evento")
 # plt.show()
 
-st.metric(label="Inscritos", value="1mil", delta="1.2")
+st.metric(label="Inscritos", value="1000", delta="1.2")
