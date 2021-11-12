@@ -53,6 +53,7 @@ fig = px.funnel(df, x=x, y=y)
 fig.show()
 st.plotly_chart(fig)
 
+####Sesión a resaltar
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Participación en el evento')
@@ -68,6 +69,7 @@ st.plotly_chart(fig)
 
 st.header('¿Llegamos al público que quisiéramos?')
 
+####Sesión a resaltar
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Organización a la que pertenecen los inscritos en el evento')
@@ -121,7 +123,10 @@ def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Número de aplicantes por zona geográfica y perfil')
 
+####Última sección
 df5 = df[df.DEPARTAMENTO.notnull()]
+df5= df5[['ID','PERFIL']].groupby(['PERFIL'], as_index=False).aggregate({'ID':'count'})
+
 cond_perfil= st.multiselect('Seleccione de acuerdo a asistencia', df5["PERFIL"])
 # df3 = df[(df['ASISTENCIA'].isin(cond_asistencia))]
 # df3= df3[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
