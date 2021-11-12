@@ -16,13 +16,13 @@ def load_data():
 df = load_data() 
 # df['Participante'] = 1
 
-def header(url):
-     st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
-
-header('notice')
-
 st.title('W1 Bootcamp DS')
-st.header('Taller AGROS')
+
+def header(url):
+     st.markdown(f'<p style="color:#354a07;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+header('Taller AGROS')
+
+# st.header('Taller AGROS')
 
 st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
 
