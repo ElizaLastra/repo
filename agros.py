@@ -53,11 +53,10 @@ fig = px.funnel(df, x=x, y=y)
 fig.show()
 st.plotly_chart(fig)
 
-####Sesión a resaltar
+####Sección 3
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Participación en el evento')
-# st.header('Participación en el evento')
 
 df1= df[['ID','ASISTENCIA']].groupby(['ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
 asistencia = df1["ASISTENCIA"]
@@ -65,16 +64,13 @@ ctd = df1["ID"]
 # plot the value
 fig = px.pie(df1, values=ctd, names=asistencia, title='Porcentaje de asistencia (%)', hole=.3)    
 st.plotly_chart(fig)
-# fig = px.pie(df, values='pop', names='country', title='Population of European continent')
 
+####Sección 4
 st.header('¿Llegamos al público que quisiéramos?')
 
-####Sesión a resaltar
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Organización a la que pertenecen los inscritos en el evento')
-
-# st.header('Organización a la que pertenecen los inscritos en el evento')
 
 df3= df[['ID','ETIQUETA_ORGANIZACION']].groupby(['ETIQUETA_ORGANIZACION'], as_index=False).aggregate({'ID':'count'})
 fig1 = px.bar(df3, x='ID', y='ETIQUETA_ORGANIZACION', orientation='h', labels={'ETIQUETA_ORGANIZACION':'Organización','ID':'Número de personas'})
@@ -85,18 +81,16 @@ def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Cargo que ocupan los inscritos en el evento')
 
-# st.header('Cargo que ocupan los inscritos en el evento')
-
 df3= df[['ID','ETIQUETA_CARGO']].groupby(['ETIQUETA_CARGO'], as_index=False).aggregate({'ID':'count'})
 fig1 = px.bar(df3, x='ID', y='ETIQUETA_CARGO', orientation='h', labels={'ETIQUETA_CARGO':'Cargo','ID':'Número de personas'})
 fig1.update_layout(title_text='Número de personas inscritas de acuerdo a su cargo')
 st.plotly_chart(fig1)
 
+####Sección 5
+
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Motivación de los inscritos en el evento')
-
-# st.header('Motivación de los inscritos en el evento')
 
 cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df1["ASISTENCIA"])
 df3 = df[(df['ASISTENCIA'].isin(cond_asistencia))]
@@ -105,11 +99,11 @@ fig1 = px.bar(df3, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION'
 fig1.update_layout(title_text='Número de personas por motivación de inscripción')
 st.plotly_chart(fig1)
 
+####Sección 6
+
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Canal de inscripción al evento')
-
-# st.header('Canal de inscripción al evento')
 
 st.header('¿Deberíamos impulsar un canal en particular?')
 
@@ -119,15 +113,16 @@ fig2 = px.bar(df4, x="ETIQUETA_CANAL", y="ID",
              height=400)
 st.plotly_chart(fig2)
 
+####Última sección
+
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Número de aplicantes por zona geográfica y perfil')
 
-####Última sección
 df5 = df[df.DEPARTAMENTO.notnull()]
 df6= df5[['ID','PERFIL']].groupby(['PERFIL'], as_index=False).aggregate({'ID':'count'})
 
-cond_perfil= st.multiselect('Seleccione de acuerdo a asistencia', df6["PERFIL"])
+cond_perfil= st.multiselect('Seleccione de acuerdo a perfil', df6["PERFIL"])
 
 df7 = df5[(df['PERFIL'].isin(cond_perfil))]
 df7 = df7[['ID','DEPARTAMENTO']].groupby(['DEPARTAMENTO'], as_index=False).aggregate({'ID':'count'})
