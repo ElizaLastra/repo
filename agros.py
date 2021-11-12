@@ -6,9 +6,9 @@ from PIL import Image
 
 # @st.cache(allow_output_mutation=True)
 @st.cache(allow_output_mutation=True)
-def load_data():
+def load_data(): 
 	data = pd.read_csv('base.csv', encoding = 'latin1')
-# 	label = LabelEncoder()
+# 	label = LabelEncoder() #
 # 	for col in data.columns:
 # 		data[col] = label.fit_transform(data[col])
 	return data
