@@ -65,7 +65,7 @@ fig2 = px.bar(df4, x="ETIQUETA_CANAL", y="ID",
 st.plotly_chart(fig2)
 
 # st.write("""### 1. Data overview""",df.head())
-# st.write("""### 2. Aplicación de filtros""")
+# st.write("""### 2. Aplicación de filtros""") ##
 
 # asistencia = df['ASISTENCIA'].unique()
 # cond_asistencia = st.selectbox('Asistencia', asistencia)
