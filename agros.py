@@ -29,7 +29,11 @@ st.metric(label="Número de inscritos y variación vs evento anterior", value=in
 image = Image.open('eventoagros.JPG')
 st.image(image)
 
-st.header('Participación en el evento')
+def header(url):
+     st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+header('Participación en el evento')
+
+# st.header('Participación en el evento')
 
 df1= df[['ID','ASISTENCIA']].groupby(['ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
 asistencia = df1["ASISTENCIA"]
