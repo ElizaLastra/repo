@@ -125,7 +125,7 @@ header('Número de aplicantes por zona geográfica y perfil')
 
 ####Última sección
 df5 = df[df.DEPARTAMENTO.notnull()]
-df6= df5['PERFIL'].unique()
+df6= df5[['ID','PERFIL']].groupby(['PERFIL'], as_index=False).aggregate({'ID':'count'})
 
 cond_perfil= st.multiselect('Seleccione de acuerdo a asistencia', df6["PERFIL"])
 
