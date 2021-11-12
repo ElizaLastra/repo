@@ -19,7 +19,7 @@ df = load_data()
 def header(url):
      st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 
-header(“notice”)
+header('notice')
 
 st.title('W1 Bootcamp DS')
 st.header('Taller AGROS')
