@@ -28,8 +28,8 @@ header('Taller AGROS')
 
 # st.header('Taller AGROS')
 
-st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
-
+# st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
+col1, col2, col3 = st.columns(3)
 image = Image.open('eventoagros.JPG')
 st.image(image)
 
