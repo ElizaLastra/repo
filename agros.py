@@ -117,12 +117,12 @@ st.plotly_chart(fig2)
 
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
-header('Número de aplicantes por zona geográfica y perfil')
+header('Alcance por zona geográfica de acuerdo a perfil')
 
 df5 = df[df.DEPARTAMENTO.notnull()]
 df6= df5[['ID','PERFIL']].groupby(['PERFIL'], as_index=False).aggregate({'ID':'count'})
 
-cond_perfil= st.multiselect('Seleccione de acuerdo a perfil', df6["PERFIL"])
+cond_perfil= st.multiselect('Seleccione el perfil', df6["PERFIL"])
 
 df7 = df5[(df['PERFIL'].isin(cond_perfil))]
 df7 = df7[['ID','DEPARTAMENTO']].groupby(['DEPARTAMENTO'], as_index=False).aggregate({'ID':'count'})
