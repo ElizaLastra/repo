@@ -19,7 +19,7 @@ df = load_data()
 st.title('W1 Bootcamp DS')
 st.header('Taller AGROS: "Ley de perfeccionamiento de la asociatividad de productores agrarios en cooperativas agrarias"')
 
-image = Image.open('eventoagros.jpg')
+image = Image.open('eventoagros.JPG')
 st.image(image)
 
 st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
