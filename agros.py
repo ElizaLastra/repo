@@ -49,11 +49,9 @@ header('Funnel de conversión')
 y = ["Registrados", "Asistentes", "Aplicantes", "Seleccionados"]
 x = [int(num_ins),int(num_asi),int(num_apl),int(num_sel)]
 
-fig = px.funnel(df, x=x)
+fig = px.funnel(df, x=x, y=y)
 fig.show()
 st.plotly_chart(fig)
-
-
 
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
