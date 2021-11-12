@@ -45,21 +45,33 @@ st.plotly_chart(fig)
 
 st.header('¿Llegamos al público que quisiéramos?')
 
-st.header('Organización a la que pertenecen los inscritos en el evento')
+def header(url):
+     st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+header('Organización a la que pertenecen los inscritos en el evento')
+
+# st.header('Organización a la que pertenecen los inscritos en el evento')
 
 df3= df[['ID','ETIQUETA_ORGANIZACION']].groupby(['ETIQUETA_ORGANIZACION'], as_index=False).aggregate({'ID':'count'})
 fig1 = px.bar(df3, x='ID', y='ETIQUETA_ORGANIZACION', orientation='h', labels={'ETIQUETA_ORGANIZACION':'Organización','ID':'Número de personas'})
 fig1.update_layout(title_text='Número de personas inscritas de acuerdo a su organización')
 st.plotly_chart(fig1)
 
-st.header('Cargo que ocupan los inscritos en el evento')
+def header(url):
+     st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+header('Cargo que ocupan los inscritos en el evento')
+
+# st.header('Cargo que ocupan los inscritos en el evento')
 
 df3= df[['ID','ETIQUETA_CARGO']].groupby(['ETIQUETA_CARGO'], as_index=False).aggregate({'ID':'count'})
 fig1 = px.bar(df3, x='ID', y='ETIQUETA_CARGO', orientation='h', labels={'ETIQUETA_CARGO':'Cargo','ID':'Número de personas'})
 fig1.update_layout(title_text='Número de personas inscritas de acuerdo a su cargo')
 st.plotly_chart(fig1)
 
-st.header('Motivación de los inscritos en el evento')
+def header(url):
+     st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+header('Motivación de los inscritos en el evento')
+
+# st.header('Motivación de los inscritos en el evento')
 
 cond_asistencia= st.multiselect('Seleccione de acuerdo a asistencia', df1["ASISTENCIA"])
 df3 = df[(df['ASISTENCIA'].isin(cond_asistencia))]
@@ -68,7 +80,11 @@ fig1 = px.bar(df3, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION'
 fig1.update_layout(title_text='Número de personas por motivación de inscripción')
 st.plotly_chart(fig1)
 
-st.header('Canal de inscripción al evento')
+def header(url):
+     st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+header('Canal de inscripción al evento')
+
+# st.header('Canal de inscripción al evento')
 
 st.header('¿Deberíamos impulsar un canal en particular?')
 
