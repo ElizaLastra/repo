@@ -5,7 +5,7 @@ import plotly.express as px
 from PIL import Image
 
 # @st.cache(allow_output_mutation=True)
-# @st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)
 def load_data(): 
 	data = pd.read_csv('base.csv', encoding = 'latin1')
 # 	label = LabelEncoder() #
@@ -27,19 +27,37 @@ def header(url):
 header('Taller AGROS')
 
 # st.header('Taller AGROS')
+####Métricas
+num_ins= len(df)
+num_asi= len(df[df.ASISTENCIA=='SI'])
+num_apl= len(df[df.PERFIL.notnull()]) 
+num_sel= len(df[df.PERFIL=='Seleccionado']) 
 
 # st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
-col1, col2, col3 = st.columns(3)
-col1.metric("Número de inscritos", value=int(df['ID'].count()), delta="10%")
-col2.metric("Mujeres", "1%", "5%")
-col3.metric("Hombres", "3%", "5%")
-
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("Número de inscritos", value=num_ins, delta="10%")
+col2.metric("Número de asistentes", value=num_asi, "3%")
+col3.metric("Número de aplicantes", value=num_apl, "2%")
+col4.metric("Número de seleccionados", value=num_sel, "5%")
+####Imagen
 image = Image.open('eventoagros.JPG')
 st.image(image)
 
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Participación en el evento')
+
+# fig = go.Figure(go.Funnel(
+#     y = ["Registrados", "Asistentes", "Aplicantes", "Seleccionados"],
+#     x = [int(num_ins),int(num_asi),int(num_apl),int(num_sel)]))
+
+y = ["Registrados", "Asistentes", "Aplicantes", "Seleccionados"]
+x = [int(num_ins),int(num_asi),int(num_apl),int(num_sel)]
+
+fig = px.funnel(df, x=x, y=y, title='Funnel de conversión')
+# fig.title("Funnel de conversión")
+fig.show()
+
 
 # st.header('Participación en el evento')
 
