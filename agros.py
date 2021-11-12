@@ -1,32 +1,29 @@
+####Librerías
 import streamlit as st
 import pandas as pd
 from matplotlib import pyplot as plt
 import plotly.express as px
 from PIL import Image
 
-# @st.cache(allow_output_mutation=True)
-#@st.cache(allow_output_mutation=True)
+####Carga BD
+@st.cache(allow_output_mutation=True)
 def load_data(): 
 	data = pd.read_csv('base.csv', encoding = 'latin1')
-# 	label = LabelEncoder() #
-# 	for col in data.columns:
-# 		data[col] = label.fit_transform(data[col])
 	return data
-
 df = load_data() 
-# df['Participante'] = 1
 
+####Sesión a resaltar
 def header(url):
      st.markdown(f'<p style="background-color:#86e000;color:#fafcf5;font-size:42px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('                      W1 Bootcamp DS')
-
 # st.title('W1 Bootcamp DS')
 
+####Sección 1
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
 header('Taller AGROS')
-
 # st.header('Taller AGROS')
+
 ####Métricas
 num_ins= len(df)
 num_asi= len(df[df.ASISTENCIA=='SI'])
@@ -39,26 +36,26 @@ col1.metric("Número de inscritos", value=num_ins, delta="10%")
 col2.metric("Número de asistentes", value=num_asi, delta="3%")
 col3.metric("Número de aplicantes", value=num_apl, delta="2%")
 col4.metric("Número de seleccionados", value=num_sel, delta="5%")
+
 ####Imagen
 image = Image.open('eventoagros.JPG')
 st.image(image)
 
+####Sección 2
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
-header('Participación en el evento')
-
-# fig = go.Figure(go.Funnel(
-#     y = ["Registrados", "Asistentes", "Aplicantes", "Seleccionados"],
-#     x = [int(num_ins),int(num_asi),int(num_apl),int(num_sel)]))
+header('Funnel de conversión')
 
 y = ["Registrados", "Asistentes", "Aplicantes", "Seleccionados"]
 x = [int(num_ins),int(num_asi),int(num_apl),int(num_sel)]
 
-fig = px.funnel(df, x=x, y=y, title='Funnel de conversión')
-# fig.title("Funnel de conversión")
+fig = px.funnel(df, x=x, y=y)
 fig.show()
+st.plotly_chart(fig)
 
-
+def header(url):
+     st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+header('Participación en el evento')
 # st.header('Participación en el evento')
 
 df1= df[['ID','ASISTENCIA']].groupby(['ASISTENCIA'], as_index=False).aggregate({'ID':'count'})
