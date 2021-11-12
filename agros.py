@@ -117,6 +117,18 @@ fig2 = px.bar(df4, x="ETIQUETA_CANAL", y="ID",
              height=400)
 st.plotly_chart(fig2)
 
+def header(url):
+     st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+header('Número de aplicantes por zona geográfica y perfil')
+
+df5 = df[df.DEPARTAMENTO.notnull()]
+cond_perfil= st.multiselect('Seleccione de acuerdo a asistencia', df5["PERFIL"])
+# df3 = df[(df['ASISTENCIA'].isin(cond_asistencia))]
+# df3= df3[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
+# fig1 = px.bar(df3, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
+# fig1.update_layout(title_text='Número de personas por motivación de inscripción')
+# st.plotly_chart(fig1)
+
 # st.write("""### 1. Data overview""",df.head())
 # st.write("""### 2. Aplicación de filtros""") ##
 
