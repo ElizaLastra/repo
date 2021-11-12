@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from matplotlib import pyplot as plt
 import plotly.express as px
+from PIL import Image
 
 # @st.cache(allow_output_mutation=True)
 @st.cache(allow_output_mutation=True)
@@ -16,7 +17,11 @@ df = load_data()
 # df['Participante'] = 1
 
 st.title('W1 Bootcamp DS')
-st.header('Inscripción en el evento de AGROS: Taller sobre la Ley de Perfeccionamiento de Cooperativas ')
+st.header('Taller AGROS: "Ley de perfeccionamiento de la asociatividad de productores agrarios en cooperativas agrarias"')
+
+image = Image.open('eventoagros.jpg')
+st.image(image)
+
 st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
 
 st.header('Participación en el evento')
