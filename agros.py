@@ -16,7 +16,11 @@ def load_data():
 df = load_data() 
 # df['Participante'] = 1
 
-st.title('W1 Bootcamp DS')
+def header(url):
+     st.markdown(f'<p style="background-color:#86e000;color:#86e000;font-size:42px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+header('W1 Bootcamp DS')
+
+# st.title('W1 Bootcamp DS')
 
 def header(url):
      st.markdown(f'<p style="color:#86e000;font-size:36px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
