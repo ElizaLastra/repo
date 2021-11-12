@@ -125,14 +125,15 @@ header('Número de aplicantes por zona geográfica y perfil')
 
 ####Última sección
 df5 = df[df.DEPARTAMENTO.notnull()]
-df5= df5[['ID','PERFIL']].groupby(['PERFIL'], as_index=False).aggregate({'ID':'count'})
+df6= df5['PERFIL'].unique()
 
-cond_perfil= st.multiselect('Seleccione de acuerdo a asistencia', df5["PERFIL"])
-# df3 = df[(df['ASISTENCIA'].isin(cond_asistencia))]
-# df3= df3[['ID','ETIQUETA_MOTIVACION']].groupby(['ETIQUETA_MOTIVACION'], as_index=False).aggregate({'ID':'count'})
-# fig1 = px.bar(df3, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
-# fig1.update_layout(title_text='Número de personas por motivación de inscripción')
-# st.plotly_chart(fig1)
+cond_perfil= st.multiselect('Seleccione de acuerdo a asistencia', df6["PERFIL"])
+
+df7 = df5[(df['PERFIL'].isin(cond_perfil))]
+df7 = df7[['ID','DEPARTAMENTO']].groupby(['DEPARTAMENTO'], as_index=False).aggregate({'ID':'count'})
+fig1 = px.bar(df7, x='ETIQUETA_MOTIVACION', y='ID',labels={'ETIQUETA_MOTIVACION':'Motivación','ID':'Número de personas'})
+fig1.update_layout(title_text='Número de aplicantes por zona geográfica')
+st.plotly_chart(fig1)
 
 # st.write("""### 1. Data overview""",df.head())
 # st.write("""### 2. Aplicación de filtros""") ##
