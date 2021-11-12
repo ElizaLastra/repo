@@ -16,7 +16,7 @@ df = load_data()
 # df['Participante'] = 1
 
 st.title('W1 Bootcamp DS')
-st.header('Inscripción en el evento de AGROS')
+st.header('Inscripción en el evento de AGROS: Taller sobre la Ley de Perfeccionamiento de Cooperativas ')
 st.metric(label="Número de inscritos y variación vs evento anterior", value=int(df['ID'].count()), delta="10%")
 
 st.header('Participación en el evento')
