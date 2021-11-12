@@ -131,7 +131,7 @@ cond_perfil= st.multiselect('Seleccione de acuerdo a asistencia', df6["PERFIL"])
 
 df7 = df5[(df['PERFIL'].isin(cond_perfil))]
 df7 = df7[['ID','DEPARTAMENTO']].groupby(['DEPARTAMENTO'], as_index=False).aggregate({'ID':'count'})
-fig1 = px.bar(df7, x='DEPARTAMENTO', y='ID',labels={DEPARTAMENTO':'Departamento','ID':'Número de Aplicantes'})
+fig1 = px.bar(df7, x='DEPARTAMENTO', y='ID',labels={'DEPARTAMENTO':'Departamento','ID':'Número de Aplicantes'})
 fig1.update_layout(title_text='Número de aplicantes por zona geográfica')
 st.plotly_chart(fig1)
 
